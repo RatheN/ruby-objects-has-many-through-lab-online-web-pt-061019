@@ -18,4 +18,10 @@ class Genre
     end
   end
 
+  def artists
+    Song.all.collect do |s|
+      s.artist
+    end
+  end
+
 end
