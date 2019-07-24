@@ -12,4 +12,10 @@ class Genre
     @@all
   end
 
+  def songs
+    Song.all.select do |s|
+      s.genre
+    end
+  end
+
 end
