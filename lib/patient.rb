@@ -1,6 +1,6 @@
 class Patient
 
-  attr_reader :name, :appointment, :patient
+  attr_accessor :name
   @@all = []
 
   def initialize(name)
@@ -13,17 +13,17 @@ class Patient
   end
 
   def new_appointment(doctor, date)
-    appointment = Appointment.new(doctor, self, date)
+    appointment = Appointment.new(self, doctor, date)
   end
 
   def appointments
     Appointment.all.select do |a|
-      a.patient
+      a.patient == self
     end
   end
 
   def doctors
-    Appointment.all.collect do |a|
+    self.appointments.collect do |a|
       a.doctor
     end
   end
