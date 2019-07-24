@@ -27,4 +27,5 @@ class Patient
       a.doctor
     end
   end
+
 end
